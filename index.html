@@ -293,6 +293,23 @@
             font-family: var(--pinyin-font);
         }
 
+        /* SIDE-BY-SIDE READING BOX */
+        .side-by-side-box {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        .reading-col {
+            flex: 1;
+            min-width: 300px;
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+        }
+
         /* LINE-BY-LINE A/B DIALOGUE TURNS */
         .dlg-prompt-title { font-size: 1rem; font-weight: bold; color: var(--primary-color); margin: 1.4rem 0 0.5rem 0; border-left: 4px solid var(--accent-color); padding-left: 8px; }
         .dlg-turn { padding: 0.6rem 0.9rem; margin-bottom: 0.4rem; background-color: #F8FAF8; border-left: 4px solid var(--primary-color); border-radius: 0 6px 6px 0; font-size: 1.05rem; width: 100%; }
@@ -349,6 +366,7 @@
             .sidebar-menu button.active { border-left-color: transparent; border-bottom-color: #6EE7B7; }
             .vocab-grid { grid-template-columns: repeat(2, 1fr); }
             .sentence-builder { flex-direction: column; align-items: stretch; }
+            .side-by-side-box { flex-direction: column; }
         }
     </style>
 </head>
@@ -1301,56 +1319,56 @@
                 <div class="dlg-prompt-title" style="margin-top:2rem;">Drill (3) Model: Going Places & Accompaniment (Pg 160)</div>
                 <div class="dlg-turn">A: Xīngqītiān nǐ chángcháng qù nǎr? <span class="translation">(Where do you often go on Sundays?)</span></div>
                 <div class="dlg-turn">B: Xīngqītiān wǒ chángcháng qù <u class="ud-slot">shāngchǎng</u>. <span class="translation">(I often go to the mall on Sundays.)</span></div>
-                <div class="dlg-turn">A: Nǐ gēn shéi qù shāngchǎng? <span class="translation">(Who do you go to the mall with?)</span></div>
-                <div class="dlg-turn">B: Wǒ gēn <u class="ud-slot">Lín Nà</u> qù shāngchǎng. <span class="translation">(I go to the mall with Lin Na.)</span></div>
+                <div class="dlg-turn">A: Nǐ gēn shéi qù <u class="ud-slot">shāngchǎng</u>? <span class="translation">(Who do you go to the mall with?)</span></div>
+                <div class="dlg-turn">B: Wǒ gēn <u class="ud-slot">Lín Nà</u> qù <u class="ud-slot">shāngchǎng</u>. <span class="translation">(I go to the mall with Lin Na.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 1 (Prompt: shūdiàn / wǒ péngyou):</div>
                 <div class="dlg-turn-ans">A: Xīngqītiān nǐ chángcháng qù nǎr? <span class="translation">(Where do you often go on Sundays?)</span></div>
                 <div class="dlg-turn-ans">B: Xīngqītiān wǒ chángcháng qù <u class="ud-ans">shūdiàn</u>. <span class="translation">(I often go to the bookstore.)</span></div>
-                <div class="dlg-turn-ans">A: Nǐ gēn shéi qù shāngchǎng? <span class="translation">(Who do you go with?)</span></div>
-                <div class="dlg-turn-ans">B: Wǒ gēn <u class="ud-ans">wǒ péngyou</u> qù shāngchǎng. <span class="translation">(I go with my friend.)</span></div>
+                <div class="dlg-turn-ans">A: Nǐ gēn shéi qù <u class="ud-ans">shūdiàn</u>? <span class="translation">(Who do you go with?)</span></div>
+                <div class="dlg-turn-ans">B: Wǒ gēn <u class="ud-ans">wǒ péngyou</u> qù <u class="ud-ans">shūdiàn</u>. <span class="translation">(I go with my friend.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 2 (Prompt: tǐyùguǎn / Mǎ Dàwéi):</div>
                 <div class="dlg-turn-ans">A: Xīngqītiān nǐ chángcháng qù nǎr? <span class="translation">(Where do you often go on Sundays?)</span></div>
                 <div class="dlg-turn-ans">B: Xīngqītiān wǒ chángcháng qù <u class="ud-ans">tǐyùguǎn</u>. <span class="translation">(I often go to the gym.)</span></div>
-                <div class="dlg-turn-ans">A: Nǐ gēn shéi qù shāngchǎng? <span class="translation">(Who do you go with?)</span></div>
-                <div class="dlg-turn-ans">B: Wǒ gēn <u class="ud-ans">Mǎ Dàwéi</u> qù shāngchǎng. <span class="translation">(I go with Ma Dawei.)</span></div>
+                <div class="dlg-turn-ans">A: Nǐ gēn shéi qù <u class="ud-ans">tǐyùguǎn</u>? <span class="translation">(Who do you go with?)</span></div>
+                <div class="dlg-turn-ans">B: Wǒ gēn <u class="ud-ans">Mǎ Dàwéi</u> qù <u class="ud-ans">tǐyùguǎn</u>. <span class="translation">(I go with Ma Dawei.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 3 (Prompt: gōngyuán / wǒ dìdi):</div>
                 <div class="dlg-turn-ans">A: Xīngqītiān nǐ chángcháng qù nǎr? <span class="translation">(Where do you often go on Sundays?)</span></div>
                 <div class="dlg-turn-ans">B: Xīngqītiān wǒ chángcháng qù <u class="ud-ans">gōngyuán</u>. <span class="translation">(I often go to the park.)</span></div>
-                <div class="dlg-turn-ans">A: Nǐ gēn shéi qù shāngchǎng? <span class="translation">(Who do you go with?)</span></div>
-                <div class="dlg-turn-ans">B: Wǒ gēn <u class="ud-ans">wǒ dìdi</u> qù shāngchǎng. <span class="translation">(I go with my younger brother.)</span></div>
+                <div class="dlg-turn-ans">A: Nǐ gēn shéi qù <u class="ud-ans">gōngyuán</u>? <span class="translation">(Who do you go with?)</span></div>
+                <div class="dlg-turn-ans">B: Wǒ gēn <u class="ud-ans">wǒ dìdi</u> qù <u class="ud-ans">gōngyuán</u>. <span class="translation">(I go with my younger brother.)</span></div>
 
                 <!-- DRILL 4 -->
                 <div class="dlg-prompt-title" style="margin-top:2rem;">Drill (4) Model: Giving Gifts & Opinions (Pg 160)</div>
                 <div class="dlg-turn">A: Tā sòng tā péngyou shénme? <span class="translation">(What does he give his friend?)</span></div>
-                <div class="dlg-turn">B: Tā sòng tā péngyou <u class="ud-slot">yì zhāng guāngpán</u>. <span class="translation">(He gives his friend a CD.)</span></div>
-                <div class="dlg-turn">A: Zhè zhāng guāngpán zěnmeyàng? <span class="translation">(How is this CD?)</span></div>
-                <div class="dlg-turn">B: Zhè zhāng guāngpán <u class="ud-slot">hěn hǎo</u>. <span class="translation">(This CD is very good.)</span></div>
+                <div class="dlg-turn">B: Tā sòng tā péngyou yì <u class="ud-slot">zhāng guāngpán</u>. <span class="translation">(He gives his friend a CD.)</span></div>
+                <div class="dlg-turn">A: Zhè <u class="ud-slot">zhāng guāngpán</u> zěnmeyàng? <span class="translation">(How is this CD?)</span></div>
+                <div class="dlg-turn">B: Zhè <u class="ud-slot">zhāng guāngpán</u> hěn hǎo. <span class="translation">(This CD is very good.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 1 (Prompt: yí ge dà dàngāo / piàoliang):</div>
                 <div class="dlg-turn-ans">A: Tā sòng tā péngyou shénme? <span class="translation">(What does he give his friend?)</span></div>
-                <div class="dlg-turn-ans">B: Tā sòng tā péngyou <u class="ud-ans">yí ge dà dàngāo</u>. <span class="translation">(He gives his friend a big cake.)</span></div>
-                <div class="dlg-turn-ans">A: Zhè zhāng guāngpán zěnmeyàng? <span class="translation">(How is it?)</span></div>
-                <div class="dlg-turn-ans">B: Zhè zhāng guāngpán <u class="ud-ans">piàoliang</u> / <u class="ud-ans">hěn piàoliang</u>. <span class="translation">(It is very beautiful.)</span></div>
+                <div class="dlg-turn-ans">B: Tā sòng tā péngyou yí <u class="ud-ans">ge dà dàngāo</u>. <span class="translation">(He gives his friend a big cake.)</span></div>
+                <div class="dlg-turn-ans">A: Zhè <u class="ud-ans">ge dàngāo</u> zěnmeyàng? <span class="translation">(How is it?)</span></div>
+                <div class="dlg-turn-ans">B: Zhè <u class="ud-ans">ge dàngāo</u> hěn piàoliang. <span class="translation">(It is very beautiful.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 2 (Prompt: yì píng pútaojiǔ / piányi):</div>
                 <div class="dlg-turn-ans">A: Tā sòng tā péngyou shénme? <span class="translation">(What does he give his friend?)</span></div>
-                <div class="dlg-turn-ans">B: Tā sòng tā péngyou <u class="ud-ans">yì píng pútaojiǔ</u>. <span class="translation">(He gives his friend a bottle of wine.)</span></div>
-                <div class="dlg-turn-ans">A: Zhè zhāng guāngpán zěnmeyàng? <span class="translation">(How is it?)</span></div>
-                <div class="dlg-turn-ans">B: Zhè zhāng guāngpán <u class="ud-ans">piányi</u> / <u class="ud-ans">hěn piányi</u>. <span class="translation">(It is very cheap.)</span></div>
+                <div class="dlg-turn-ans">B: Tā sòng tā péngyou yì <u class="ud-ans">píng pútaojiǔ</u>. <span class="translation">(He gives his friend a bottle of wine.)</span></div>
+                <div class="dlg-turn-ans">A: Zhè <u class="ud-ans">píng pútaojiǔ</u> zěnmeyàng? <span class="translation">(How is it?)</span></div>
+                <div class="dlg-turn-ans">B: Zhè <u class="ud-ans">píng pútaojiǔ</u> hěn piányi. <span class="translation">(It is very cheap.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 3 (Prompt: yì běn shū / yǒu yìsi):</div>
                 <div class="dlg-turn-ans">A: Tā sòng tā péngyou shénme? <span class="translation">(What does he give his friend?)</span></div>
-                <div class="dlg-turn-ans">B: Tā sòng tā péngyou <u class="ud-ans">yì běn shū</u>. <span class="translation">(He gives his friend a book.)</span></div>
-                <div class="dlg-turn-ans">A: Zhè zhāng guāngpán zěnmeyàng? <span class="translation">(How is it?)</span></div>
-                <div class="dlg-turn-ans">B: Zhè zhāng guāngpán <u class="ud-ans">yǒu yìsi</u> / <u class="ud-ans">hěn yǒu yìsi</u>. <span class="translation">(It is very interesting.)</span></div>
+                <div class="dlg-turn-ans">B: Tā sòng tā péngyou yì <u class="ud-ans">běn shū</u>. <span class="translation">(He gives his friend a book.)</span></div>
+                <div class="dlg-turn-ans">A: Zhè <u class="ud-ans">běn shū</u> zěnmeyàng? <span class="translation">(How is it?)</span></div>
+                <div class="dlg-turn-ans">B: Zhè <u class="ud-ans">běn shū</u> hěn yǒu yìsi. <span class="translation">(It is very interesting.)</span></div>
 
                 <!-- DRILL 5 -->
                 <div class="dlg-prompt-title" style="margin-top:2rem;">Drill (5) Model: Giving Money / Items (Pg 160)</div>
-                <div class="dlg-turn">A: Tā gěi shéi èrshí kuài qián? <span class="translation">(Who does he give 20 yuan to?)</span></div>
-                <div class="dlg-turn">B: Tā gěi <u class="ud-slot">shīfu</u> èrshí kuài qián. <span class="translation">(He gives the master 20 yuan.)</span></div>
+                <div class="dlg-turn">A: Tā gěi shéi <u class="ud-slot">èrshí kuài qián</u>? <span class="translation">(Who does he give 20 yuan to?)</span></div>
+                <div class="dlg-turn">B: Tā gěi <u class="ud-slot">shīfu</u> <u class="ud-slot">èrshí kuài qián</u>. <span class="translation">(He gives the master 20 yuan.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 1 (Prompt: yì zhāng míngpiàn / Lìbō):</div>
                 <div class="dlg-turn-ans">A: Tā gěi shéi <u class="ud-ans">yì zhāng míngpiàn</u>? <span class="translation">(Who does he give a name card to?)</span></div>
@@ -1367,41 +1385,48 @@
                 <!-- DRILL 6 -->
                 <div class="dlg-prompt-title" style="margin-top:2rem;">Drill (6) Model: Shopping Total Price (Pg 160)</div>
                 <div class="dlg-turn">A: Nǐ mǎi shénme? <span class="translation">(What are you buying?)</span></div>
-                <div class="dlg-turn">B: Wǒ mǎi <u class="ud-slot">liǎng jīn pútao</u>. Yígòng duōshao qián? <span class="translation">(I buy 2 jin of grapes. How much in total?)</span></div>
-                <div class="dlg-turn">A: Yígòng <u class="ud-slot">wǔ kuài</u> qián. <span class="translation">(Total 5 yuan.)</span></div>
+                <div class="dlg-turn">B: Wǒ mǎi <u class="ud-slot">liǎng jīn pútao</u>. <span class="translation">(I buy 2 jin of grapes.)</span></div>
+                <div class="dlg-turn">B: Yígòng duōshao qián? <span class="translation">(How much in total?)</span></div>
+                <div class="dlg-turn">A: Yígòng <u class="ud-slot">wǔ kuài qián</u>. <span class="translation">(Total 5 yuan.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 1 (Prompt: liǎng píng jiǔ / 180 kuài):</div>
-                <div class="dlg-turn-ans">A: Nǐ mǎi shénme?  B: Wǒ mǎi <u class="ud-ans">liǎng píng jiǔ</u>. Yígòng duōshao qián?</div>
-                <div class="dlg-turn-ans">A: Yígòng <u class="ud-ans">yìbǎi bāshí kuài</u> qián. <span class="translation">(Total 180 yuan.)</span></div>
+                <div class="dlg-turn-ans">A: Nǐ mǎi shénme? <span class="translation">(What are you buying?)</span></div>
+                <div class="dlg-turn-ans">B: Wǒ mǎi <u class="ud-ans">liǎng píng jiǔ</u>. <span class="translation">(I buy two bottles of wine.)</span></div>
+                <div class="dlg-turn-ans">B: Yígòng duōshao qián? <span class="translation">(How much in total?)</span></div>
+                <div class="dlg-turn-ans">A: Yígòng <u class="ud-ans">yìbǎi bāshí kuài qián</u>. <span class="translation">(Total 180 yuan.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 2 (Prompt: sān zhī bǐ / 7 kuài wǔ máo):</div>
-                <div class="dlg-turn-ans">A: Nǐ mǎi shénme?  B: Wǒ mǎi <u class="ud-ans">sān zhī bǐ</u>. Yígòng duōshao qián?</div>
-                <div class="dlg-turn-ans">A: Yígòng <u class="ud-ans">qī kuài wǔ máo</u> qián. <span class="translation">(Total 7.50 yuan.)</span></div>
+                <div class="dlg-turn-ans">A: Nǐ mǎi shénme? <span class="translation">(What are you buying?)</span></div>
+                <div class="dlg-turn-ans">B: Wǒ mǎi <u class="ud-ans">sān zhī bǐ</u>. <span class="translation">(I buy three pens.)</span></div>
+                <div class="dlg-turn-ans">B: Yígòng duōshao qián? <span class="translation">(How much in total?)</span></div>
+                <div class="dlg-turn-ans">A: Yígòng <u class="ud-ans">qī kuài wǔ máo qián</u>. <span class="translation">(Total 7.50 yuan.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 3 (Prompt: yì fèn bàozhǐ / 2 kuài liù máo):</div>
-                <div class="dlg-turn-ans">A: Nǐ mǎi shénme?  B: Wǒ mǎi <u class="ud-ans">yì fèn bàozhǐ</u>. Yígòng duōshao qián?</div>
-                <div class="dlg-turn-ans">A: Yígòng <u class="ud-ans">liǎng kuài liù máo</u> qián. <span class="translation">(Total 2.60 yuan.)</span></div>
+                <div class="dlg-turn-ans">A: Nǐ mǎi shénme? <span class="translation">(What are you buying?)</span></div>
+                <div class="dlg-turn-ans">B: Wǒ mǎi <u class="ud-ans">yì fèn bàozhǐ</u>. <span class="translation">(I buy a newspaper.)</span></div>
+                <div class="dlg-turn-ans">B: Yígòng duōshao qián? <span class="translation">(How much in total?)</span></div>
+                <div class="dlg-turn-ans">A: Yígòng <u class="ud-ans">liǎng kuài liù máo qián</u>. <span class="translation">(Total 2.60 yuan.)</span></div>
 
                 <!-- DRILL 7 -->
                 <div class="dlg-prompt-title" style="margin-top:2rem;">Drill (7) Model: Price Comparisons (Pg 160)</div>
-                <div class="dlg-turn">A: Zhège shīfu de pútao <u class="ud-slot">guì bu guì</u>? <span class="translation">(Are this vendor's grapes expensive?)</span></div>
-                <div class="dlg-turn">B: Zhège shīfu de pútao <u class="ud-slot">bú guì</u>, nàge shīfu de pútao <u class="ud-slot">guì</u>. <span class="translation">(This vendor's grapes are not expensive, that vendor's grapes are expensive.)</span></div>
+                <div class="dlg-turn">A: <u class="ud-slot">Zhège shīfu de pútao</u> guì bu guì? <span class="translation">(Are this vendor's grapes expensive?)</span></div>
+                <div class="dlg-turn">B: <u class="ud-slot">Zhège shīfu de pútao</u> bú guì, <u class="ud-slot">nàge shīfu de pútao</u> guì. <span class="translation">(This vendor's grapes are not expensive, that vendor's grapes are expensive.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 1 (Prompt: wàiyǔ xì de xuésheng / duō):</div>
-                <div class="dlg-turn-ans">A: Wàiyǔ xì de xuésheng <u class="ud-ans">duō bu duō</u>? <span class="translation">(Are there many students in foreign lang dept?)</span></div>
-                <div class="dlg-turn-ans">B: Wàiyǔ xì de xuésheng <u class="ud-ans">duō</u>, Hànyǔ xì de xuésheng <u class="ud-ans">bù duō</u>. <span class="translation">(There are many, Chinese dept doesn't have many.)</span></div>
+                <div class="dlg-turn-ans">A: <u class="ud-ans">Wàiyǔ xì de xuésheng</u> duō bu duō? <span class="translation">(Are there many students in foreign lang dept?)</span></div>
+                <div class="dlg-turn-ans">B: <u class="ud-ans">Wàiyǔ xì de xuésheng</u> duō, <u class="ud-ans">Hànyǔ xì de xuésheng</u> bù duō. <span class="translation">(There are many, Chinese dept doesn't have many.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 2 (Prompt: zhè yí kè / róngyì):</div>
-                <div class="dlg-turn-ans">A: Zhè yí kè <u class="ud-ans">róngyì bu róngyì</u>? <span class="translation">(Is this lesson easy?)</span></div>
-                <div class="dlg-turn-ans">B: Zhè yí kè <u class="ud-ans">róngyì</u>, nà yí kè <u class="ud-ans">bù róngyì</u>. <span class="translation">(This lesson is easy, that lesson is not easy.)</span></div>
+                <div class="dlg-turn-ans">A: <u class="ud-ans">Zhè yí kè</u> róngyì bu róngyì? <span class="translation">(Is this lesson easy?)</span></div>
+                <div class="dlg-turn-ans">B: <u class="ud-ans">Zhè yí kè</u> róngyì, <u class="ud-ans">nà yí kè</u> bù róngyì. <span class="translation">(This lesson is easy, that lesson is not easy.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 3 (Prompt: zhèr de kǎoyā / guì):</div>
-                <div class="dlg-turn-ans">A: Zhèr de kǎoyā <u class="ud-ans">guì bu guì</u>? <span class="translation">(Is roast duck here expensive?)</span></div>
-                <div class="dlg-turn-ans">B: Zhèr de kǎoyā <u class="ud-ans">bú guì</u>, nàr de kǎoyā <u class="ud-ans">guì</u>. <span class="translation">(Roast duck here is not expensive, roast duck there is expensive.)</span></div>
+                <div class="dlg-turn-ans">A: <u class="ud-ans">Zhèr de kǎoyā</u> guì bu guì? <span class="translation">(Is roast duck here expensive?)</span></div>
+                <div class="dlg-turn-ans">B: <u class="ud-ans">Zhèr de kǎoyā</u> bú guì, <u class="ud-ans">nàr de kǎoyā</u> guì. <span class="translation">(Roast duck here is not expensive, roast duck there is expensive.)</span></div>
 
                 <div class="dlg-prompt-title">Practice 4 (Prompt: zhè zhāng zhàopiàn / piàoliang):</div>
-                <div class="dlg-turn-ans">A: Zhè zhāng zhàopiàn <u class="ud-ans">piàoliang bu piàoliang</u>? <span class="translation">(Is this photo beautiful?)</span></div>
-                <div class="dlg-turn-ans">B: Zhè zhāng zhàopiàn <u class="ud-ans">piàoliang</u>, nà zhāng zhàopiàn <u class="ud-ans">bù piàoliang</u>. <span class="translation">(This photo is beautiful, that photo is not.)</span></div>
+                <div class="dlg-turn-ans">A: <u class="ud-ans">Zhè zhāng zhàopiàn</u> piàoliang bu piàoliang? <span class="translation">(Is this photo beautiful?)</span></div>
+                <div class="dlg-turn-ans">B: <u class="ud-ans">Zhè zhāng zhàopiàn</u> piàoliang, <u class="ud-ans">nà zhāng zhàopiàn</u> bù piàoliang. <span class="translation">(This photo is beautiful, that photo is not.)</span></div>
             </div>
 
             <!-- EXERCISE 3 -->
@@ -1434,6 +1459,13 @@
                 <div class="card-title">
                     <span>4. Change Statements into Questions with Interrogative Pronouns</span>
                     <span class="page-badge">Pg 161</span>
+                </div>
+
+                <div class="rule-box" style="margin-bottom: 1.2rem; background-color: var(--light-green);">
+                    <strong style="color: var(--primary-color);">Learned Interrogative Pronouns (疑问代词):</strong><br>
+                    <span class="vocab-pinyin" style="font-size: 1.05rem; color: var(--accent-color);">
+                        shéi (谁) | shénme (什么) | nǎ (哪) | nǎr (哪儿) | zěnmeyàng (怎么样) | zěnme (怎么) | shénme shíhou (什么时候) | jǐ (几) | duōshao (多少)
+                    </span>
                 </div>
 
                 <div class="dlg-turn">1. Zhège shāngchǎng hěn yǒumíng. (Ask 2 questions)</div>
@@ -1560,32 +1592,74 @@
                 <div class="dlg-turn">A: Wǒ yào liǎng ge, gěi nín qián. <span class="translation">(I want two, here's the money.)</span></div>
             </div>
 
-            <!-- EXERCISE 7 -->
+            <!-- EXERCISE 7 SIDE-BY-SIDE + 5 Q&A -->
             <div class="card">
                 <div class="card-title">
                     <span>7. Reading Comprehension and Paraphrasing</span>
                     <span class="page-badge">Pg 164</span>
                 </div>
                 
-                <div class="pinyin-box" style="margin-bottom:1.5rem;">
-                    <strong style="color:var(--primary-color);">Short Reading Passage:</strong><br>
-                    Mǎ Dàwéi xīngqītiān chángcháng gēn Lín Nà qù xiǎo shāngchǎng. Jīntiān tā qù yí ge dà shāngchǎng, shāngchǎng lǐ dōngxi hěn duō. Tā zài nàr mǎi yīnyuè guāngpán, Wáng Xiǎoyún yě zài. Mǎ Dàwéi xǐhuan Zhōngguó yīnyuè. Tā wèn Wáng Xiǎoyún shénme yīnyuè guāngpán hǎo, Wáng Xiǎoyún shuō "Liáng Zhù" hěn yǒumíng, wàiguó péngyou yě xǐhuan. Mǎ Dàwéi hěn gāoxìng, tā shuō: "Hǎo, wǒ mǎi zhè zhāng guāngpán." Mǎ Dàwéi hái yào mǎi shū hé bàozhǐ, zhège shāngchǎng bú mài shū, yě bú mài bàozhǐ. Tā gēn Wáng Xiǎoyún qù mǎi běnzi.<br><br>
-                    Mǎ Dàwéi hái chángcháng qù shūdiàn. Nàge shūdiàn yě hěn dà, shū hěn duō. Tā zài shūdiàn mǎi shū, yě kàn shū. Zhōngguó de shū bú guì. Xià yuè èrshí hào shì tā dìdi de shēngri. Tā dìdi xǐhuan Zhōngguó gōngfu, tā yào sòng dìdi yì běn "Zhōngguó Gōngfu".
-                    <br><br>
-                    <span class="translation">(Ma Dawei often goes to a small shopping mall with Lin Na on Sundays. Today he goes to a big shopping mall, where there are many things. He buys music CDs there, and Wang Xiaoyun is also there. Ma Dawei likes Chinese music. He asks Wang Xiaoyun which music CD is good, and Wang Xiaoyun says "Butterfly Lovers" is very famous, and foreign friends also like it. Ma Dawei is very happy, and he says: "Okay, I'll buy this CD." Ma Dawei also wants to buy books and newspapers, but this mall doesn't sell books or newspapers. He goes with Wang Xiaoyun to buy notebooks. Ma Dawei also often goes to the bookstore. That bookstore is also very big, with many books. He buys books and reads books in the bookstore. Books in China are not expensive. The 20th of next month is his younger brother's birthday. His younger brother likes Chinese kung fu, so he wants to give his younger brother a book called "Chinese Kung Fu".)</span>
+                <div class="click-hint" style="margin-bottom:1rem;">
+                    Reading passage presented side-by-side (Left: Pinyin Text | Right: English Translation):
                 </div>
 
-                <div class="dlg-turn">1. Q: Mǎ Dàwéi xīngqītiān chángcháng gēn shéi qù xiǎo shāngchǎng? <span class="translation">(Who does Ma Dawei often go to the small mall with on Sundays?)</span></div>
-                <div class="dlg-turn-ans">Ans: Tā chángcháng gēn Lín Nà qù xiǎo shāngchǎng. <span class="translation">(He often goes with Lin Na.)</span></div>
+                <div class="side-by-side-box">
+                    <div class="reading-col py-text">
+                        <strong style="color:var(--primary-color);">Pinyin Original Text:</strong><br><br>
+                        Mǎ Dàwéi xīngqītiān chángcháng gēn Lín Nà qù xiǎo shāngchǎng. Jīntiān tā qù yí ge dà shāngchǎng, shāngchǎng lǐ dōngxi hěn duō. Tā zài nàr mǎi yīnyuè guāngpán, Wáng Xiǎoyún yě zài. Mǎ Dàwéi xǐhuan Zhōngguó yīnyuè. Tā wèn Wáng Xiǎoyún shénme yīnyuè guāngpán hǎo, Wáng Xiǎoyún shuō "Liáng Zhù" hěn yǒumíng, wàiguó péngyou yě xǐhuan. Mǎ Dàwéi hěn gāoxìng, tā shuō: "Hǎo, wǒ mǎi zhè zhāng guāngpán." Mǎ Dàwéi hái yào mǎi shū hé bàozhǐ, zhège shāngchǎng bú mài shū, yě bú mài bàozhǐ. Tā gēn Wáng Xiǎoyún qù mǎi běnzi.<br><br>
+                        Mǎ Dàwéi hái chángcháng qù shūdiàn. Nàge shūdiàn yě hěn dà, shū hěn duō. Tā zài shūdiàn mǎi shū, yě kàn shū. Zhōngguó de shū bú guì. Xià yuè èrshí hào shì tā dìdi de shēngri. Tā dìdi xǐhuan Zhōngguó gōngfu, tā yào sòng dìdi yì běn "Zhōngguó Gōngfu".
+                    </div>
 
-                <div class="dlg-turn" style="margin-top:0.8rem;">2. Q: Tā zài dà shāngchǎng mǎi shénme? <span class="translation">(What does he buy at the big shopping mall?)</span></div>
-                <div class="dlg-turn-ans">Ans: Tā zài dà shāngchǎng mǎi yīnyuè guāngpán hé běnzi. <span class="translation">(He buys music CDs and notebooks.)</span></div>
+                    <div class="reading-col">
+                        <strong style="color:var(--primary-color);">English Translation:</strong><br><br>
+                        Ma Dawei often goes to a small shopping mall with Lin Na on Sundays. Today he goes to a big shopping mall, where there are many things. He buys music CDs there, and Wang Xiaoyun is also there. Ma Dawei likes Chinese music. He asks Wang Xiaoyun which music CD is good, and Wang Xiaoyun says "Butterfly Lovers" is very famous, and foreign friends also like it. Ma Dawei is very happy, and he says: "Okay, I'll buy this CD." Ma Dawei also wants to buy books and newspapers, but this mall doesn't sell books or newspapers. He goes with Wang Xiaoyun to buy notebooks.<br><br>
+                        Ma Dawei also often goes to the bookstore. That bookstore is also very big, with many books. He buys books and reads books in the bookstore. Books in China are not expensive. The 20th of next month is his younger brother's birthday. His younger brother likes Chinese kung fu, so he wants to give his younger brother a book called "Chinese Kung Fu".
+                    </div>
+                </div>
 
-                <div class="dlg-turn" style="margin-top:0.8rem;">3. Q: Shāngchǎng mài bú mài shū hé bàozhǐ? <span class="translation">(Does the mall sell books and newspapers?)</span></div>
-                <div class="dlg-turn-ans">Ans: Shāngchǎng bú mài shū, yě bú mài bàozhǐ. <span class="translation">(The mall does not sell books or newspapers.)</span></div>
+                <div class="card-title" style="margin-top:1.5rem;">
+                    <span>Reading Comprehension 5 Questions (Click to Reveal Answers)</span>
+                </div>
 
-                <div class="dlg-turn" style="margin-top:0.8rem;">4. Q: Tā yào sòng dìdi shénme shēngri lǐwù? <span class="translation">(What birthday present does he want to give his younger brother?)</span></div>
-                <div class="dlg-turn-ans">Ans: Tā yào sòng dìdi yì běn "Zhōngguó Gōngfu". <span class="translation">(He wants to give his younger brother a book called "Chinese Kung Fu".)</span></div>
+                <div class="wb-item">
+                    <div class="wb-q">1. Shéi zài guāngpán diàn? <span class="translation">(Who is at the CD shop?)</span></div>
+                    <div class="wb-ans-box" onclick="this.classList.toggle('revealed')">
+                        <div class="ans-hint"> Click to Reveal Answer</div>
+                        <div class="ans-content"><u class="ud-ans">Mǎ Dàwéi hé Wáng Xiǎoyún</u> <span class="translation">(Ma Dawei and Wang Xiaoyun)</span></div>
+                    </div>
+                </div>
+
+                <div class="wb-item">
+                    <div class="wb-q">2. Mǎ Dàwéi qù dà shāngchǎng mǎi shénme? <span class="translation">(What does Ma Dawei go to the big shopping mall to buy?)</span></div>
+                    <div class="wb-ans-box" onclick="this.classList.toggle('revealed')">
+                        <div class="ans-hint"> Click to Reveal Answer</div>
+                        <div class="ans-content"><u class="ud-ans">Yīnyuè guāngpán hé běnzi</u> <span class="translation">(Music CDs and notebooks)</span></div>
+                    </div>
+                </div>
+
+                <div class="wb-item">
+                    <div class="wb-q">3. Zhège dà shāngchǎng mài bú mài shū? <span class="translation">(Does this big shopping mall sell books?)</span></div>
+                    <div class="wb-ans-box" onclick="this.classList.toggle('revealed')">
+                        <div class="ans-hint"> Click to Reveal Answer</div>
+                        <div class="ans-content"><u class="ud-ans">Bú mài shū, yě bú mài bàozhǐ</u> <span class="translation">(Does not sell books, nor newspapers)</span></div>
+                    </div>
+                </div>
+
+                <div class="wb-item">
+                    <div class="wb-q">4. Nàge shūdiàn zěnmeyàng? <span class="translation">(How is that bookstore?)</span></div>
+                    <div class="wb-ans-box" onclick="this.classList.toggle('revealed')">
+                        <div class="ans-hint"> Click to Reveal Answer</div>
+                        <div class="ans-content"><u class="ud-ans">Nàge shūdiàn hěn dà, shū hěn duō</u> <span class="translation">(That bookstore is very big, with many books)</span></div>
+                    </div>
+                </div>
+
+                <div class="wb-item">
+                    <div class="wb-q">5. Mǎ Dàwéi de dìdi de shēngri shì nǎ tiān? <span class="translation">(When is Ma Dawei's younger brother's birthday?)</span></div>
+                    <div class="wb-ans-box" onclick="this.classList.toggle('revealed')">
+                        <div class="ans-hint"> Click to Reveal Answer</div>
+                        <div class="ans-content"><u class="ud-ans">Xià yuè èrshí hào</u> <span class="translation">(Next month on the 20th)</span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
