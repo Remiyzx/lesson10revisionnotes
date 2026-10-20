@@ -120,7 +120,7 @@
         .py-text, .vocab-collo, .vocab-sent, .dlg-py, .qa-q, .qa-a, .quiz-ans, 
         .correct-example, .error-example, .wb-q, .ans-content, .wb-py-q, .ans-py, 
         .sent-py, .pinyin-box, .vocab-pinyin-cell, .vocab-pinyin, .slot, .math-box, 
-        .dlg-turn, .dlg-turn-ans, .ud-slot, .ud-ans, .grammar-hl, .tile-py, .exercise-blank, .chip-py, .line-py {
+        .dlg-turn, .dlg-turn-ans, .ud-slot, .ud-ans, .grammar-hl, .tile-py, .exercise-blank, .chip-py, .line-py, .supp-tile-py-box {
             font-family: var(--pinyin-font) !important;
         }
 
@@ -190,6 +190,48 @@
         .tile-quiz-btn.revealed { background-color: #EFF6FF; border: 2px solid var(--answer-blue); cursor: default; }
         .tile-quiz-btn.revealed .quiz-hint { display: none; }
         .tile-quiz-btn.revealed .quiz-ans { display: block; }
+
+        /* MONOCHROME TILES FOR SUPPLEMENTARY WORDS (NO CLICK-TO-REVEAL) */
+        .supp-vocab-tile {
+            background: #FFFFFF;
+            border: 2px solid #D1D5DB;
+            border-radius: 12px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 140px;
+            transition: all 0.2s ease;
+        }
+        .supp-vocab-tile:hover {
+            border-color: #6B7280;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+        .supp-tile-header {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #4B5563;
+            margin-bottom: 4px;
+        }
+        .supp-tile-meaning {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        .supp-tile-py-box {
+            width: 100%;
+            background-color: #F3F4F6;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 8px 6px;
+            font-weight: bold;
+            color: #111827;
+            font-size: 1.2rem;
+        }
 
         /* PHRASE GRID ROWS */
         .phrase-row-8 { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; margin-bottom: 14px; }
@@ -325,7 +367,6 @@
         .prompt-chip .chip-hz { font-size: 0.88rem; color: #334155; margin-top: 1px; }
         .prompt-chip .chip-eng { font-size: 0.85rem; color: #475569; font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: 1px; }
 
-        /* REFINED DISTINCT PINK & PURPLE COLOR SCHEMES */
         .slot-pink   { color: #BE185D; background-color: #FCE7F3; border: 1.5px solid #F472B6; padding: 1px 6px; border-radius: 4px; font-weight: bold; }
         .slot-purple { color: #7E22CE; background-color: #F3E8FF; border: 1.5px solid #C084FC; padding: 1px 6px; border-radius: 4px; font-weight: bold; }
         .chip-pink   { background-color: #FCE7F3; border: 1.5px solid #F472B6; color: #9D174D; }
@@ -497,10 +538,10 @@
             </div>
         </section>
 
-        <!-- TAB 2: VOCABULARY QUIZ FLASHCARDS -->
+        <!-- TAB 2: VOCABULARY QUIZ FLASHCARDS & SUPPLEMENTARY WORDS -->
         <section id="tab-vocab" class="tab-content">
             <div class="content-header">
-                <h2>Vocab Quiz Flashcards (Click Tile to Reveal Pinyin)</h2>
+                <h2>Vocab Quiz Flashcards &amp; Supplementary Words</h2>
             </div>
 
             <div class="card">
@@ -675,6 +716,89 @@
                         <div class="tile-header">WORD #18</div>
                         <div class="tile-meaning">to give change</div>
                         <div class="tile-quiz-btn" onclick="this.classList.add('revealed')"><span class="quiz-hint">🔍 Reveal Pinyin</span><span class="quiz-ans">zhǎo (qián)</span></div>
+                    </div>
+                </div>
+
+                <!-- ADDED: SUPPLEMENTARY WORDS IN MONOCHROME (NO CLICK REVEAL, DIRECT DISPLAY) -->
+                <div class="card-title" style="margin-top: 2.8rem; color: #374151; border-bottom: 2px dashed #9CA3AF;">
+                    <span>Supplementary Words (补充生词)</span>
+                    <span style="background-color: #374151; color: #FFFFFF; font-size: 0.85rem; padding: 3px 12px; border-radius: 12px; font-weight: bold;">Textbook Pg 157</span>
+                </div>
+                <div class="vocab-grid">
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #1</div>
+                        <div class="supp-tile-meaning">shop assistant, salesperson</div>
+                        <div class="supp-tile-py-box">shòuhuòyuán</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #2</div>
+                        <div class="supp-tile-meaning">writer</div>
+                        <div class="supp-tile-py-box">zuòjiā</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #3</div>
+                        <div class="supp-tile-meaning">bookstore</div>
+                        <div class="supp-tile-py-box">shūdiàn</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #4</div>
+                        <div class="supp-tile-meaning">gym, gymnasium</div>
+                        <div class="supp-tile-py-box">tǐyùguǎn</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #5</div>
+                        <div class="supp-tile-meaning">park</div>
+                        <div class="supp-tile-py-box">gōngyuán</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #6</div>
+                        <div class="supp-tile-meaning">cheap, inexpensive</div>
+                        <div class="supp-tile-py-box">piányi</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #7</div>
+                        <div class="supp-tile-meaning">(MW for books &amp; notebooks)</div>
+                        <div class="supp-tile-py-box">běn</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #8</div>
+                        <div class="supp-tile-meaning">(MW for stick-like things, pens)</div>
+                        <div class="supp-tile-py-box">zhī</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #9</div>
+                        <div class="supp-tile-meaning">pen, writing instrument</div>
+                        <div class="supp-tile-py-box">bǐ</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #10</div>
+                        <div class="supp-tile-meaning">(MW for publications/newspapers)</div>
+                        <div class="supp-tile-py-box">fèn</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #11</div>
+                        <div class="supp-tile-meaning">yuan (written currency)</div>
+                        <div class="supp-tile-py-box">yuán</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #12</div>
+                        <div class="supp-tile-meaning">to sell</div>
+                        <div class="supp-tile-py-box">mài</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #13</div>
+                        <div class="supp-tile-meaning">(MW for cups or glasses)</div>
+                        <div class="supp-tile-py-box">bēi</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #14</div>
+                        <div class="supp-tile-meaning">thing, stuff</div>
+                        <div class="supp-tile-py-box">dōngxi</div>
+                    </div>
+                    <div class="supp-vocab-tile">
+                        <div class="supp-tile-header">WORD #15</div>
+                        <div class="supp-tile-meaning">kung fu</div>
+                        <div class="supp-tile-py-box">gōngfu</div>
                     </div>
                 </div>
             </div>
@@ -1005,7 +1129,7 @@
                 </div>
             </div>
 
-            <!-- WORKBOOK SECTION C: 3 PER ROW (EXACT 3x3 LAYOUT AS IN WORKBOOK) -->
+            <!-- WORKBOOK SECTION C: 3 PER ROW -->
             <div class="card">
                 <div class="card-title">
                     <span>Section C: Write Name of Object &amp; Measure Word (Nu + M + N)</span>
